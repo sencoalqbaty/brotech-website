@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <!-- Meta Tags الأساسية -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="لوحة تحكم BroTech لإدارة مشاريعك وحسابك">
+    
+    <!-- عنوان الصفحة الديناميكي -->
+    <title data-translate="dashboard_title">BroTech - لوحة التحكم</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS الأساسي -->
+    <link rel="stylesheet" href="./css/style.css">
+    
+    <!-- Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- خطوط Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" 
+          rel="stylesheet">
+</head>
+<body class="dashboard-page">
+    <div class="dashboard-layout">
+        <!-- ============== الشريط الجانبي ============== -->
+        <aside class="dashboard-sidebar">
+            <div class="sidebar-header">
+                <h2 class="sidebar-logo" data-translate="logo">BroTech</h2>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="sidebar-menu">
+                    <li class="menu-item active">
+                        <a href="dashboard.html" class="menu-link">
+                            <i class="fas fa-tachometer-alt menu-icon"></i>
+                            <span class="menu-text" data-translate="dashboard">لوحة التحكم</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <i class="fas fa-user menu-icon"></i>
+                            <span class="menu-text" data-translate="profile">الملف الشخصي</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <i class="fas fa-project-diagram menu-icon"></i>
+                            <span class="menu-text" data-translate="projects">المشاريع</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <i class="fas fa-envelope menu-icon"></i>
+                            <span class="menu-text" data-translate="messages">الرسائل</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" class="menu-link">
+                            <i class="fas fa-cog menu-icon"></i>
+                            <span class="menu-text" data-translate="settings">الإعدادات</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="language-switcher">
+                    <button class="lang-btn" onclick="changeLanguage('ar')" aria-label="Switch to Arabic">العربية</button>
+                    <button class="lang-btn" onclick="changeLanguage('en')" aria-label="Switch to English">English</button>
+                </div>
+                
+                <a href="#" id="logout-btn" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span data-translate="logout">تسجيل الخروج</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- ============== المحتوى الرئيسي ============== -->
+        <main class="dashboard-main">
+            <!-- شريط العنوان العلوي -->
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <h1 class="welcome-message" data-translate="welcome">مرحباً بك، <span id="username">محمد</span></h1>
+                </div>
+                
+                <div class="header-right">
+                    <div class="notifications-wrapper">
+                        <button class="notifications-btn" aria-label="Notifications">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge">3</span>
+                        </button>
+                    </div>
+                    
+                    <div class="user-profile">
+                        <div class="user-avatar">
+                            <img src="./images/avatar.png" alt="صورة المستخدم" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- المحتوى الفعلي للوحة التحكم -->
+            <div class="dashboard-content">
+                <!-- بطاقات الإحصائيات -->
+                <section class="stats-section">
+                    <div class="stats-grid">
+                        <article class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3 class="stat-title" data-translate="active_projects">المشاريع النشطة</h3>
+                                <p class="stat-value">5</p>
+                            </div>
+                        </article>
+                        
+                        <article class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3 class="stat-title" data-translate="completed_tasks">المهام المكتملة</h3>
+                                <p class="stat-value">12</p>
+                            </div>
+                        </article>
+                        
+                        <article class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="stat-details">
+                                <h3 class="stat-title" data-translate="new_messages">الرسائل الجديدة</h3>
+                                <p class="stat-value">3</p>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- النشاطات الأخيرة -->
+                <section class="activities-section">
+                    <header class="section-header">
+                        <h2 class="section-title" data-translate="recent_activities">النشاطات الأخيرة</h2>
+                        <a href="#" class="view-all" data-translate="view_all">عرض الكل</a>
+                    </header>
+                    
+                    <div class="activities-list">
+                        <article class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p class="activity-text" data-translate="project_created">تم إنشاء مشروع جديد "موقع BroTech"</p>
+                                <time class="activity-time" datetime="2023-05-15T14:30:00" data-translate="hours_ago">منذ ساعتين</time>
+                            </div>
+                        </article>
+                        
+                        <article class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="activity-content">
+                                <p class="activity-text" data-translate="task_completed">تم إكمال مهمة "تصميم واجهة المستخدم"</p>
+                                <time class="activity-time" datetime="2023-05-14T09:15:00" data-translate="day_ago">منذ يوم</time>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- ============== ملفات JavaScript ============== -->
+    <!-- ملف اللغة -->
+    <script src="./js/language.js" defer></script>
+    
+    <!-- التطبيق الرئيسي -->
+    <script src="./js/app.js" defer></script>
+    
+    <!-- التحميل الكسول للصور -->
+    <script src="./js/lazyload.js" defer></script>
+</body>
+</html>

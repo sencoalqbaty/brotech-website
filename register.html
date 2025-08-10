@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="register_title">BroTech - إنشاء حساب جديد</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="register-page">
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1 data-translate="logo">BroTech</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" data-translate="home">الرئيسية</a></li>
+                    <li><a href="login.html" data-translate="login">تسجيل الدخول</a></li>
+                </ul>
+            </nav>
+            <div class="language-switcher">
+                <button onclick="changeLanguage('ar')">العربية</button>
+                <button onclick="changeLanguage('en')">English</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="auth-page">
+        <div class="auth-container">
+            <div class="auth-form">
+                <h2 data-translate="register_heading">إنشاء حساب جديد</h2>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="register-name" data-translate="full_name">الاسم الكامل</label>
+                        <input type="text" id="register-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email" data-translate="email">البريد الإلكتروني</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password" data-translate="password">كلمة المرور</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-confirm-password" data-translate="confirm_password">تأكيد كلمة المرور</label>
+                        <input type="password" id="register-confirm-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="agree-terms" required>
+                            <span data-translate="agree_terms">أوافق على</span> 
+                            <a href="#" data-translate="terms_conditions">الشروط والأحكام</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary" data-translate="create_account">إنشاء حساب</button>
+                </form>
+                <div class="auth-footer">
+                    <p data-translate="have_account">لديك حساب بالفعل؟ <a href="login.html" data-translate="sign_in">تسجيل الدخول</a></p>
+                </div>
+            </div>
+            <div class="auth-image">
+                <img src="./images/register-image.jpg" alt="إنشاء حساب">
+            </div>
+        </div>
+    </main>
+
+    <script src="./js/language.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html>
