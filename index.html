@@ -10,26 +10,45 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="alternate" hreflang="ar" href="https://yourdomain.com/ar" />
     <link rel="alternate" hreflang="en" href="https://yourdomain.com/en" />
+    <link rel="icon" href="./images/brotech-logo.png" type="image/png">
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo">
-                <h1 data-translate="logo">BroTech</h1>
+                <div class="logo-container">
+                    <img src="./images/brotech-logo.png" alt="BroTech Logo" class="logo-img">
+                    <h1 class="logo-text" data-translate="logo">BroTech</h1>
+                </div>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active" data-translate="home">الرئيسية</a></li>
-                    <li><a href="#services" data-translate="services">خدماتنا</a></li>
-                    <li><a href="#about" data-translate="about">من نحن</a></li>
-                    <li><a href="#contact" data-translate="contact">اتصل بنا</a></li>
-                    <li><a href="login.html" class="btn-login" data-translate="login">تسجيل الدخول</a></li>
-                </ul>
-            </nav>
-            <div class="language-switcher">
-                <button onclick="changeLanguage('ar')">العربية</button>
-                <button onclick="changeLanguage('en')">English</button>
+            <div class="header-nav-wrapper">
+                <nav>
+                    <ul>
+                        <li><a href="index.html" class="active" data-translate="home">الرئيسية</a></li>
+                        <li><a href="#services" data-translate="services">خدماتنا</a></li>
+                        <li><a href="#about" data-translate="about">من نحن</a></li>
+                        <li><a href="#contact" data-translate="contact">اتصل بنا</a></li>
+                        <li><a href="pages/auth/login.html" class="btn btn-login" data-translate="login">تسجيل الدخول</a></li>
+                    </ul>
+                </nav>
+                <div class="language-switcher">
+                    <button onclick="changeLanguage('ar')">العربية</button>
+                    <button onclick="changeLanguage('en')">English</button>
+                </div>
+                <div class="theme-switch-wrapper">
+                    <label class="theme-switch" for="theme-toggle">
+                        <input type="checkbox" id="theme-toggle" />
+                        <span class="slider">
+                            <i class="fas fa-moon"></i>
+                            <i class="fas fa-sun"></i>
+                        </span>
+                    </label>
+                </div>
             </div>
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars open-icon"></i>
+                <i class="fas fa-times close-icon"></i>
+            </button>
         </div>
     </header>
 
@@ -38,7 +57,7 @@
             <div class="hero-content">
                 <h2 data-translate="hero_title">حلول تكنولوجية متكاملة لعملك</h2>
                 <p data-translate="hero_text">نقدم في BroTech أحدث الحلول التقنية لدعم نمو أعمالك وتحقيق أهدافك</p>
-                <a href="register.html" class="btn-primary" data-translate="join_us">انضم إلينا الآن</a>
+                <a href="pages/auth/register.html" class="btn-primary" data-translate="join_us">انضم إلينا الآن</a>
             </div>
             <div class="hero-image">
                 <img src="images/tech-hero.png" alt="BroTech Solutions">
@@ -69,6 +88,53 @@
         </div>
     </section>
 
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title" data-translate="about_us">من نحن</h2>
+            <div class="about-content section-content-wrapper">
+                <p data-translate="about_desc">
+                    نحن في BroTech شركة متخصصة في تقديم حلول تقنية مبتكرة تساعد الشركات والأفراد على تحقيق أهدافهم الرقمية. فريقنا يضم خبراء في تطوير المواقع، تطبيقات الجوال، والحلول السحابية، ونسعى دائماً لتقديم أفضل الخدمات بأعلى جودة واحترافية.
+                </p>
+                <!-- صور تقنية -->
+                <div class="about-images">
+                    <img src="images/amr1.png" alt="تقنية 1" class="enlargeable-image" data-src="images/amr1.png">
+                    <img src="images/amr.jpg" alt="تقنية 2" class="enlargeable-image" data-src="images/tech2.jpg">
+                    <img src="images/amr2.webp" alt="تقنية 3" class="enlargeable-image" data-src="images/tech3.jpg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-translate="contact_us">اتصل بنا</h2>
+            <div class="contact-content section-content-wrapper">
+                <p data-translate="contact_desc">
+                    يمكنك التواصل معنا عبر البريد الإلكتروني أو الهاتف، أو إرسال رسالة مباشرة عبر النموذج التالي:
+                </p>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name" data-translate="your_name">الاسم</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-translate="your_email">البريد الإلكتروني</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-translate="your_message">رسالتك</label>
+                        <textarea id="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" data-translate="send_message">إرسال الرسالة</button>
+                </form>
+                <div class="contact-info">
+                    <p><strong>البريد الإلكتروني:</strong> <a href="mailto:amrfahmi@zohomail.com">amrfahmi@zohomail.com</a></p>
+                    <p><strong>الهاتف:</strong> <a href="tel:+967773153278">+967 773 153 278</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -79,48 +145,62 @@
                 <div class="footer-section">
                     <h3 data-translate="quick_links">روابط سريعة</h3>
                     <ul>
-                        <li><a href="index.html" data-translate="home">الرئيسية</a></li>
-                        <li><a href="login.html" data-translate="login">تسجيل الدخول</a></li>
-                        <li><a href="register.html" data-translate="register">إنشاء حساب</a></li>
+                        <li>
+                            <a href="index.html" data-translate="home">
+                                <i class="fas fa-home"></i> الرئيسية
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pages/auth/login.html" data-translate="login">
+                                <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pages/auth/register.html" data-translate="register">
+                                <i class="fas fa-user-plus"></i> إنشاء حساب
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about" data-translate="about">
+                                <i class="fas fa-users"></i> من نحن
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact" data-translate="contact">
+                                <i class="fas fa-envelope"></i> اتصل بنا
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3 data-translate="contact_us">اتصل بنا</h3>
-                    <p>info@brotech.com</p>
-                    <p>+967 773 153 278</p>
+                    <p>
+                        <i class="fas fa-envelope"></i> <a href="mailto:amrfahmi@zohomail.com">amrfahmi@zohomail.com</a>
+                    </p>
+                    <p>
+                        <i class="fas fa-phone"></i> <a href="tel:+967773153278">+967 773 153 278</a>
+                    </p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p data-translate="copyright">&copy; 2023 BroTech. جميع الحقوق محفوظة</p>
+                <p data-translate="copyright">&copy; 2025 BroTech. جميع الحقوق محفوظة</p>
             </div>
         </div>
     </footer>
 
+    <!-- نافذة عرض الصور (Modal) -->
+    <div id="imageModal" class="image-modal">
+        <span class="image-modal-close">&times;</span>
+        <div class="image-modal-content">
+            <img id="modalImage" src="" alt="صورة مكبرة">
+            <div id="modalCaption"></div>
+        </div>
+    </div>
+
     <script src="./js/language.js"></script>
-    <script src="./js/app.js"></script>
+    <script src="./js/theme.js"></script>
+    <script type="module" src="./js/app.js"></script>
+    <script src="./js/mobile-nav.js"></script>
     
 </body>
 </html>
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyDdi5h-fQO6Hm3KjilwkwdXP6sUPNWWxgs",
-    authDomain: "brotech-189ea.firebaseapp.com",
-    projectId: "brotech-189ea",
-    storageBucket: "brotech-189ea.firebasestorage.app",
-    messagingSenderId: "600356738998",
-    appId: "1:600356738998:web:4822a95c8747b07a1dd317",
-    measurementId: "G-FLFRFXVX2Z"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
-</script>
