@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="title">BroTech - الصفحة الرئيسية</title>
+    <!-- الروابط الأساسية -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="alternate" hreflang="ar" href="https://yourdomain.com/ar" />
+    <link rel="alternate" hreflang="en" href="https://yourdomain.com/en" />
+    <link rel="icon" href="./images/brotech-logo.png" type="image/png">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-container">
+                    <img src="./images/brotech-logo.png" alt="BroTech Logo" class="logo-img">
+                    <h1 class="logo-text" data-translate="logo">BroTech</h1>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active" data-translate="home">الرئيسية</a></li>
+                    <li><a href="#services" data-translate="services">خدماتنا</a></li>
+                    <li><a href="#about" data-translate="about">من نحن</a></li>
+                    <li><a href="#contact" data-translate="contact">اتصل بنا</a></li>
+                    <li><a href="pages/auth/login.html" class="btn btn-login" data-translate="login">تسجيل الدخول</a></li>
+                </ul>
+            </nav>
+            <div class="language-switcher">
+                <button onclick="changeLanguage('ar')">العربية</button>
+                <button onclick="changeLanguage('en')">English</button>
+            </div>
+            <div class="theme-switch-wrapper">
+                <label class="theme-switch" for="theme-toggle">
+                    <input type="checkbox" id="theme-toggle" />
+                    <span class="slider">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </span>
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2 data-translate="hero_title">حلول تكنولوجية متكاملة لعملك</h2>
+                <p data-translate="hero_text">نقدم في BroTech أحدث الحلول التقنية لدعم نمو أعمالك وتحقيق أهدافك</p>
+                <a href="pages/auth/register.html" class="btn-primary" data-translate="join_us">انضم إلينا الآن</a>
+            </div>
+            <div class="hero-image">
+                <img src="images/tech-hero.png" alt="BroTech Solutions">
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title" data-translate="our_services">خدماتنا</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3 data-translate="web_dev">تطوير المواقع</h3>
+                    <p data-translate="web_dev_desc">تصميم وتطوير مواقع ويب احترافية متكاملة</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3 data-translate="mobile_apps">تطبيقات الجوال</h3>
+                    <p data-translate="mobile_apps_desc">بناء تطبيقات الهاتف لنظامي Android و iOS</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-cloud"></i>
+                    <h3 data-translate="cloud_solutions">الحلول السحابية</h3>
+                    <p data-translate="cloud_solutions_desc">توفير حلول سحابية آمنة وقابلة للتوسع</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title" data-translate="about_us">من نحن</h2>
+            <div class="about-content section-content-wrapper">
+                <p data-translate="about_desc">
+                    نحن في BroTech شركة متخصصة في تقديم حلول تقنية مبتكرة تساعد الشركات والأفراد على تحقيق أهدافهم الرقمية. فريقنا يضم خبراء في تطوير المواقع، تطبيقات الجوال، والحلول السحابية، ونسعى دائماً لتقديم أفضل الخدمات بأعلى جودة واحترافية.
+                </p>
+                <!-- صور تقنية -->
+                <div class="about-images">
+                    <img src="images/amr1.png" alt="تقنية 1" class="enlargeable-image" data-src="images/amr1.png">
+                    <img src="images/amr.jpg" alt="تقنية 2" class="enlargeable-image" data-src="images/tech2.jpg">
+                    <img src="images/amr2.webp" alt="تقنية 3" class="enlargeable-image" data-src="images/tech3.jpg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-translate="contact_us">اتصل بنا</h2>
+            <div class="contact-content section-content-wrapper">
+                <p data-translate="contact_desc">
+                    يمكنك التواصل معنا عبر البريد الإلكتروني أو الهاتف، أو إرسال رسالة مباشرة عبر النموذج التالي:
+                </p>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name" data-translate="your_name">الاسم</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-translate="your_email">البريد الإلكتروني</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-translate="your_message">رسالتك</label>
+                        <textarea id="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" data-translate="send_message">إرسال الرسالة</button>
+                </form>
+                <div class="contact-info">
+                    <p><strong>البريد الإلكتروني:</strong> <a href="mailto:amrfahmi@zohomail.com">amrfahmi@zohomail.com</a></p>
+                    <p><strong>الهاتف:</strong> <a href="tel:+967773153278">+967 773 153 278</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-translate="company">BroTech</h3>
+                    <p data-translate="company_desc">شركة رائدة في تقديم الحلول التقنية المتكاملة</p>
+                </div>
+                <div class="footer-section">
+                    <h3 data-translate="quick_links">روابط سريعة</h3>
+                    <ul>
+                        <li>
+                            <a href="index.html" data-translate="home">
+                                <i class="fas fa-home"></i> الرئيسية
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pages/auth/login.html" data-translate="login">
+                                <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pages/auth/register.html" data-translate="register">
+                                <i class="fas fa-user-plus"></i> إنشاء حساب
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about" data-translate="about">
+                                <i class="fas fa-users"></i> من نحن
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact" data-translate="contact">
+                                <i class="fas fa-envelope"></i> اتصل بنا
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3 data-translate="contact_us">اتصل بنا</h3>
+                    <p>
+                        <i class="fas fa-envelope"></i> <a href="mailto:amrfahmi@zohomail.com">amrfahmi@zohomail.com</a>
+                    </p>
+                    <p>
+                        <i class="fas fa-phone"></i> <a href="tel:+967773153278">+967 773 153 278</a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-translate="copyright">&copy; 2025 BroTech. جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- نافذة عرض الصور (Modal) -->
+    <div id="imageModal" class="image-modal">
+        <span class="image-modal-close">&times;</span>
+        <div class="image-modal-content">
+            <img id="modalImage" src="" alt="صورة مكبرة">
+            <div id="modalCaption"></div>
+        </div>
+    </div>
+
+    <script src="./js/language.js"></script>
+    <script src="./js/theme.js"></script>
+    <script type="module" src="./js/app.js"></script>
+    
+</body>
+</html>

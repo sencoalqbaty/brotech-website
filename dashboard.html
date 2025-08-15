@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title data-translate="dashboard_title">BroTech - لوحة التحكم</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="./images/brotech-logo.png" type="image/png">
+ 
+</head>
+<body class="dashboard">
+
+    <!-- Header الموحد -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-container clickable" onclick="window.location.href='index.html'">
+                    <img src="./images/brotech-logo.png" alt="BroTech Logo" class="logo-img">
+                    <h1 class="logo-text" data-translate="logo">BroTech</h1>
+                </div>
+            </div>
+            
+            <div class="header-actions">
+                <button class="header-btn search-btn" aria-label="بحث"><i class="fas fa-search"></i></button>
+                
+                <div class="notifications-wrapper">
+                    <button class="header-btn notifications-btn" aria-label="الإشعارات"><i class="fas fa-bell"></i><span class="badge">3</span></button>
+                    <!-- يمكن إضافة القائمة المنسدلة للإشعارات هنا -->
+                </div>
+                
+                <!-- <div class="user-profile-dropdown">
+                    <button class="user-profile-btn">
+                        <div class="user-avatar">
+                            <img src="./images/avatar.png" alt="صورة المستخدم">
+                        </div>
+                        <span class="user-name">...</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#"><i class="fas fa-user"></i> الملف الشخصي</a>
+                        <a href="#"><i class="fas fa-cog"></i> الإعدادات</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" id="logout-btn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard-layout">
+        <!-- القائمة الجانبية -->
+        <aside class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="sidebar-menu">
+            <li class="menu-item active">
+                <a href="#"><i class="fas fa-tachometer-alt menu-icon"></i><span class="menu-text">لوحة التحكم</span></a>
+            </li>
+            <li class="menu-item">
+                <a href="#"><i class="fas fa-user menu-icon"></i><span class="menu-text">الملف الشخصي</span></a>
+            </li>
+            <li class="menu-item">
+                <a href="#"><i class="fas fa-project-diagram menu-icon"></i><span class="menu-text">المشاريع</span></a>
+            </li>
+            <li class="menu-item">
+                <a href="#"><i class="fas fa-users menu-icon"></i><span class="menu-text">المستخدمين</span></a>
+            </li>
+            <li class="menu-item">
+                <a href="#"><i class="fas fa-cog menu-icon"></i><span class="menu-text">الإعدادات</span></a>
+            </li>
+        </ul>
+    </nav>
+    <div class="sidebar-footer">
+        <a href="#" class="logout-btn"><i class="fas fa-sign-out-alt"></i><span>تسجيل الخروج</span></a>
+    </div>
+</aside>
+        <main class="dashboard-content">
+            <!-- Stat Cards Grid -->
+            <div class="sidebar-footer">
+                <a href="#" class="logout-btn"><i class="fas fa-sign-out-alt"></i><span>تسجيل الخروج</span></a>
+            </div>
+        </aside>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon projects"><i class="fas fa-project-diagram"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="stats-total-projects">...</span>
+                        <span class="stat-title">إجمالي المشاريع</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon users"><i class="fas fa-users"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="stats-active-clients">...</span>
+                        <span class="stat-title">إجمالي المستخدمين</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon tasks"><i class="fas fa-tasks"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="stats-completed-tasks">...</span>
+                        <span class="stat-title">المهام المكتملة</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon revenue"><i class="fas fa-dollar-sign"></i></div>
+                    <div class="stat-info">
+                        <span class="stat-number" id="stats-revenue">...</span>
+                        <span class="stat-title">الأرباح هذا الشهر</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Dashboard Grid -->
+            <div class="dashboard-grid">
+                <!-- المشاريع الحديثة -->
+                <section class="card recent-projects-card">
+                    <h2><i class="fas fa-clock"></i> المشاريع الحديثة</h2>
+                    <div class="projects-list">
+                        <!-- سيتم عرض المشاريع هنا بواسطة JavaScript -->
+                    </div>
+                </section>
+
+                <!-- الدردشة مع العملاء -->
+                <section class="card chat-card">
+                    <h2><i class="fas fa-comments"></i> الدردشة السريعة</h2>
+                    <div class="chat-box">
+                        <div class="message client">
+                            <img src="./images/avatar-client.png" alt="Client" class="chat-avatar">
+                            <p>مرحباً، أريد العمل على مشروع جديد.</p>
+                        </div>
+                        <div class="message admin">
+                            <img src="./images/avatar.png" alt="Admin" class="chat-avatar">
+                            <p>أهلاً بك، تفضل بإرسال تفاصيل المشروع.</p>
+                        </div>
+                         <div class="message client">
+                            <img src="./images/avatar-client.png" alt="Client" class="chat-avatar">
+                            <p>بالتأكيد، سأرسلها الآن.</p>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <input type="text" placeholder="اكتب رسالتك...">
+                        <button><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </section>
+
+                <!-- قائمة المستخدمين -->
+                <section class="card users-list-card">
+                    <h2><i class="fas fa-users"></i> أحدث المستخدمين</h2>
+                    <ul class="users-list">
+                        <!-- سيتم عرض المستخدمين هنا بواسطة JavaScript -->
+                    </ul>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer الموحد -->
+    <footer class="dashboard-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BroTech</h3>
+                    <p>لوحة تحكم الحلول التقنية المتكاملة.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط هامة</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
+                        <li><a href="#"><i class="fas fa-user"></i> الملف الشخصي</a></li>
+                        <li><a href="#"><i class="fas fa-cog"></i> الإعدادات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>الدعم الفني</h3>
+                    <p><i class="fas fa-envelope"></i> support@brotech.com</p>
+                    <p><i class="fas fa-phone"></i> +967 773 153 278</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 BroTech. جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="./js/dashboard.js"></script>
+    <script src="./js/language.js"></script>
+
+</body>
+</html>
