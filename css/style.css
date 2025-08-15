@@ -830,17 +830,59 @@ footer {
   .auth-image {
     display: none;
   }
+
+  /* --- تفعيل قائمة الجوال --- */
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .header-nav-wrapper {
+    display: none; /* إخفاء شريط التنقل العادي في الجوال */
+  }
+
+  body.mobile-nav-active {
+    overflow: hidden; /* منع تمرير الصفحة عند فتح القائمة */
+  }
+
+  body.mobile-nav-active .header-nav-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* مسافة بين العناصر داخل القائمة */
+    position: fixed;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+  }
+
+  body.dark-theme.mobile-nav-active .header-nav-wrapper {
+    background-color: rgba(24, 26, 27, 0.95);
+  }
+
+  body.mobile-nav-active .header-nav-wrapper nav ul {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  body.mobile-nav-active .header-nav-wrapper nav ul li {
+    margin-inline-end: 0;
+  }
+
+  body.mobile-nav-active .header-nav-wrapper nav ul li a {
+    font-size: 1.5rem;
+  }
+
+  body.mobile-nav-active .header-nav-wrapper .btn-login {
+    font-size: 1.5rem;
+    padding: 10px 30px;
+  }
 }
 
 @media (max-width: 768px) {
-  header .container {
-    flex-direction: column;
-  }
-  
-  .logo {
-    margin-bottom: 15px;
-  }
-  
   .dashboard-layout {
     flex-direction: column;
   }
@@ -858,7 +900,6 @@ footer {
     padding: 20px;
   }
   
-  .language-switcher {
     position: relative;
     left: auto;
     top: auto;
@@ -1067,6 +1108,51 @@ body.dark-theme .language-switcher button.active {
 body.dark-theme .divider {
     color: #8a8d91;
 }
+
+/* ============== Mobile Navigation ============== */
+.mobile-nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+    color: var(--dark-color);
+    padding: 0;
+    line-height: 1;
+}
+
+body.dark-theme .mobile-nav-toggle {
+    color: #e4e6eb;
+}
+
+.mobile-nav-toggle .close-icon {
+    display: none;
+}
+
+.mobile-nav-toggle.active .open-icon {
+    display: none;
+}
+
+.mobile-nav-toggle.active .close-icon {
+    display: block;
+}
+
+.header-nav-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-nav-wrapper nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.header-nav-wrapper .btn-login {
+    margin-inline-start: 20px;
+}
+
 
 
 
