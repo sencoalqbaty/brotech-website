@@ -30,12 +30,11 @@ html {
 }
 
 body {
-  font-family: 'Tajawal', 'Roboto', sans-serif;
+  font-family: 'Cairo', sans-serif;
   background-color: #f5f7fa;
   color: #333;
   line-height: 1.6;
   min-height: 100vh;
-  padding-top: var(--header-height);
 }
 
 [lang="en"], [dir="ltr"] {
@@ -86,12 +85,11 @@ body {
 header {
   background-color: var(--white-color);
   box-shadow: var(--box-shadow);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
 }
 
+body.has-fixed-header, body.dashboard {
+    padding-top: var(--header-height);
+}
 /* ============== ترويسة لوحة التحكم ============== */
 header .container {
     height: var(--header-height);
@@ -448,13 +446,13 @@ footer {
   border-radius: var(--border-radius);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* ظل أكثر بروزاً */
   overflow: hidden;
-  max-width: 480px; /* عرض متوسط ومناسب */
+  max-width: 380px; /* عرض مناسب ومدمج */
   width: 100%;
   border-top: 5px solid var(--primary-color); /* إضافة لمسة مميزة */
 }
 
 .auth-form {
-  padding: 40px; /* تعديل الحشوة لتناسب الحجم الجديد */
+  padding: 25px; /* حشوة داخلية متوازنة */
 }
 
 .auth-image {
@@ -476,16 +474,16 @@ footer {
 
 .auth-form-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px; /* تقليل المسافة السفلية */
 }
 
 .auth-logo {
-  height: 60px;
-  margin-bottom: 15px;
+  height: 50px; /* تصغير الشعار قليلاً */
+  margin-bottom: 10px;
 }
 
 .auth-form h2 {
-  font-size: 24px;
+  font-size: 22px; /* تصغير حجم العنوان */
   margin-bottom: 10px;
   color: var(--dark-color);
   text-align: center;
@@ -493,12 +491,13 @@ footer {
 
 .form-subtitle {
     color: var(--secondary-color);
-    margin-bottom: 30px;
+    margin-bottom: 25px; /* تقليل المسافة السفلية */
+    font-size: 0.9rem; /* تصغير حجم الخط الفرعي */
     text-align: center;
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 15px; /* تقليل المسافة بين حقول النموذج */
 }
 
 .form-group label {
@@ -536,86 +535,6 @@ footer {
     gap: 10px; /* مسافة بين الأيقونة والنص */
     text-transform: uppercase; /* جعل النص بأحرف كبيرة لمظهر أوضح */
     border-radius: var(--border-radius); /* توحيد حواف الزر مع الأزرار الأخرى */
-}
-
-/* ============== أزرار الدخول الاجتماعي ============== */
-.social-login {
-    text-align: center;
-    margin-top: 25px;
-}
-
-.divider {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: var(--secondary-color);
-    margin: 20px 0;
-    font-size: 14px;
-}
-
-.divider::before,
-.divider::after {
-    content: '';
-    flex: 1;
-    border-bottom: 1px solid #ddd;
-}
-
-.divider:not(:empty)::before {
-    margin-inline-end: .5em;
-}
-
-.divider:not(:empty)::after {
-    margin-inline-start: .5em;
-}
-
-.social-buttons {
-    display: flex;
-    flex-direction: column; /* ترتيب الأزرار عمودياً */
-    gap: 15px; /* مسافة بين الأزرار */
-}
-
-.social-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 20px; /* زيادة الحشوة لتكبير الزر */
-    font-size: 16px; /* تكبير الخط قليلاً */
-    font-weight: 500;
-    border-radius: var(--border-radius);
-    border: 1px solid transparent;
-    cursor: pointer;
-    transition: var(--transition);
-    width: 100%;
-    gap: 12px; /* مسافة بين الأيقونة والنص */
-}
-
-.social-btn i,
-.social-btn svg {
-    font-size: 20px; /* تكبير الأيقونة */
-    width: 20px;
-    height: 20px;
-}
-
-/* تنسيق زر جوجل */
-.social-btn.google {
-    background-color: var(--white-color);
-    color: #333;
-    border-color: #ddd;
-}
-
-.social-btn.google:hover {
-    background-color: #f8f8f8;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-/* تنسيق زر فيسبوك */
-.social-btn.facebook {
-    background-color: #1877F2; /* اللون الرسمي لفيسبوك */
-    color: var(--white-color);
-}
-
-.social-btn.facebook:hover {
-    background-color: #166fe5;
 }
 
 /* ============== لوحة التحكم (تصميم جديد ومنظم) ============== */
@@ -717,6 +636,73 @@ footer {
   flex: 1; /* يأخذ المساحة المتبقية */
   padding: 30px;
   overflow-y: auto; /* يسمح للمحتوى بالتمرير بشكل مستقل */
+}
+
+.sidebar .menu-text,
+.sidebar .sidebar-footer .logout-btn span {
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* --- Collapsible Sidebar Styles --- */
+
+/* Desktop - Collapsed by default */
+@media (min-width: 992px) {
+    body.sidebar-collapsed .sidebar {
+        width: 85px;
+    }
+
+    body.sidebar-collapsed .sidebar .logo-text,
+    body.sidebar-collapsed .sidebar .menu-text,
+    body.sidebar-collapsed .sidebar .sidebar-footer .logout-btn span {
+        opacity: 0;
+        visibility: hidden;
+        width: 0;
+    }
+
+    body.sidebar-collapsed .sidebar .logo-container {
+        justify-content: center;
+    }
+    
+    body.sidebar-collapsed .sidebar .menu-item a {
+        justify-content: center;
+    }
+
+    body.sidebar-collapsed .sidebar .menu-icon {
+        margin-inline-end: 0;
+    }
+    
+    body.sidebar-collapsed .sidebar .sidebar-footer .logout-btn {
+        justify-content: center;
+    }
+
+    body.sidebar-collapsed .dashboard-content {
+        margin-inline-start: 85px;
+    }
+    
+    .dashboard-content {
+        transition: margin-inline-start 0.3s ease;
+        margin-inline-start: 250px;
+    }
+}
+
+/* Mobile - Off-canvas behavior */
+@media (max-width: 991.98px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        inset-inline-start: -250px; /* Start off-screen */
+        z-index: 1030;
+        height: 100vh;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .sidebar.mobile-open {
+        inset-inline-start: 0;
+    }
+    
+    .dashboard-content {
+        margin-inline-start: 0 !important;
+    }
 }
 
 .welcome-message {
@@ -831,54 +817,15 @@ footer {
     display: none;
   }
 
-  /* --- تفعيل قائمة الجوال --- */
-  .mobile-nav-toggle {
-    display: block;
+  /* Make index page header not fixed and rounded on mobile */
+  body.has-fixed-header header.fixed-top {
+      position: static; /* Make it scroll with the page */
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
   }
 
-  .header-nav-wrapper {
-    display: none; /* إخفاء شريط التنقل العادي في الجوال */
-  }
-
-  body.mobile-nav-active {
-    overflow: hidden; /* منع تمرير الصفحة عند فتح القائمة */
-  }
-
-  body.mobile-nav-active .header-nav-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px; /* مسافة بين العناصر داخل القائمة */
-    position: fixed;
-    inset: 0;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(8px);
-    z-index: 1000;
-    animation: fadeIn 0.3s ease;
-  }
-
-  body.dark-theme.mobile-nav-active .header-nav-wrapper {
-    background-color: rgba(24, 26, 27, 0.95);
-  }
-
-  body.mobile-nav-active .header-nav-wrapper nav ul {
-    flex-direction: column;
-    gap: 20px;
-    text-align: center;
-  }
-
-  body.mobile-nav-active .header-nav-wrapper nav ul li {
-    margin-inline-end: 0;
-  }
-
-  body.mobile-nav-active .header-nav-wrapper nav ul li a {
-    font-size: 1.5rem;
-  }
-
-  body.mobile-nav-active .header-nav-wrapper .btn-login {
-    font-size: 1.5rem;
-    padding: 10px 30px;
+  body.has-fixed-header {
+      padding-top: 0; /* Remove padding since header is no longer fixed */
   }
 }
 
@@ -914,6 +861,50 @@ footer {
   .logo-text {
     font-size: 1.2rem;
   }
+}
+
+/* ============== قائمة التنقل المنسدلة للجوال ============== */
+@media (max-width: 991.98px) { /* Bootstrap's lg breakpoint */
+    .navbar .navbar-collapse.mobile-dropdown-menu {
+        position: absolute;
+        top: 100%; /* Position it right below the header */
+        left: 0;
+        right: 0;
+        background-color: var(--white-color);
+        box-shadow: var(--box-shadow);
+        padding: 20px;
+        border-bottom-left-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+        z-index: 999; /* Ensure it's above other content */
+    }
+
+    /* Adjustments for the items inside the dropdown */
+    .navbar .navbar-collapse.mobile-dropdown-menu .navbar-nav {
+        width: 100%;
+    }
+
+    .navbar .navbar-collapse.mobile-dropdown-menu .nav-item {
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .navbar .navbar-collapse.mobile-dropdown-menu .header-actions {
+        flex-direction: column;
+        align-items: stretch !important; /* Override Bootstrap's d-flex align-items-center */
+        gap: 15px;
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+
+    /* Dark theme support */
+    body.dark-theme .navbar .navbar-collapse.mobile-dropdown-menu {
+        background-color: #242526; /* Same as header in dark mode */
+    }
+
+    body.dark-theme .navbar .navbar-collapse.mobile-dropdown-menu .header-actions {
+        border-top-color: #3a3b3c;
+    }
 }
 
 /* ============== تصغير صورة صفحة تسجيل الدخول ============== */
@@ -1109,52 +1100,6 @@ body.dark-theme .divider {
     color: #8a8d91;
 }
 
-/* ============== Mobile Navigation ============== */
-.mobile-nav-toggle {
-    display: none;
-    background: transparent;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 1001;
-    color: var(--dark-color);
-    padding: 0;
-    line-height: 1;
-}
-
-body.dark-theme .mobile-nav-toggle {
-    color: #e4e6eb;
-}
-
-.mobile-nav-toggle .close-icon {
-    display: none;
-}
-
-.mobile-nav-toggle.active .open-icon {
-    display: none;
-}
-
-.mobile-nav-toggle.active .close-icon {
-    display: block;
-}
-
-.header-nav-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.header-nav-wrapper nav ul {
-    display: flex;
-    list-style: none;
-}
-
-.header-nav-wrapper .btn-login {
-    margin-inline-start: 20px;
-}
-
-
-
 
 /* ============== مفتاح تبديل الوضع المظلم (Toggle Switch) ============== */
 .theme-switch-wrapper {
@@ -1214,25 +1159,25 @@ input:checked + .slider:before {
 }
 
 /* أيقونات الشمس والقمر */
-.slider .fa-sun {
+.slider .bi-sun-fill {
   color: #f39c12;
   font-size: 14px;
   opacity: 0;
   transition: opacity 0.4s;
 }
 
-.slider .fa-moon {
+.slider .bi-moon-fill {
   color: #f1c40f;
   font-size: 14px;
   opacity: 1;
   transition: opacity 0.4s;
 }
 
-input:checked + .slider .fa-sun {
+input:checked + .slider .bi-sun-fill {
   opacity: 1;
 }
 
-input:checked + .slider .fa-moon {
+input:checked + .slider .bi-moon-fill {
   opacity: 0;
 }
 
@@ -1331,4 +1276,78 @@ body.dark-theme #modalCaption {
         font-size: 30px;
     }
 }
+
+/* ============== Profile Page ============== */
+.profile-summary-card .card-body {
+    padding: 30px;
+}
+
+.profile-avatar {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--white-color);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.profile-avatar .upload-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 35px;
+    height: 35px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    border: 2px solid var(--white-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.profile-avatar .upload-btn:hover {
+    transform: scale(1.1);
+}
+
+.profile-details-card .form-control[readonly] {
+    background-color: #f5f7fa;
+    cursor: default;
+    pointer-events: none;
+}
+
+body.dark-theme .profile-details-card .form-control[readonly] {
+    background-color: #3a3b3c;
+    border-color: #555;
+}
+
+.profile-actions {
+    text-align: end;
+}
+
+/* ============== Loading Spinner Overlay ============== */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+body.dark-theme .loading-overlay {
+    background-color: rgba(24, 26, 27, 0.7);
 }

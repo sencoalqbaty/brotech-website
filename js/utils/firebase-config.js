@@ -37,6 +37,28 @@
 // export const storage = getStorage(app);
 // export { app }; // Export app if needed for other services like Functions
 // auth.js
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyDdi5h-fQO6Hm3KjilwkwdXP6sUPNWWxgs",
+  authDomain: "brotech-189ea.firebaseapp.com",
+  databaseURL: "https://brotech-189ea-default-rtdb.firebaseio.com",
+  projectId: "brotech-189ea",
+  storageBucket: "brotech-189ea.firebasestorage.app",
+  messagingSenderId: "600356738998",
+  appId: "1:600356738998:web:4822a95c8747b07a1dd317",
+  measurementId: "G-FLFRFXVX2Z"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 import { auth, db, appSettings } from "./firebase-config.js";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 import { ref, set } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";

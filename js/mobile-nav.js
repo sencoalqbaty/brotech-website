@@ -1,14 +1,12 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
-    const body = document.body;
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileNavToggle = document.querySelector('[data-mobile-nav-toggle]');
+    const sidebar = document.querySelector('.sidebar');
+    const mainContent = document.querySelector('.main-content');
 
-    if (mobileNavToggle) {
-        mobileNavToggle.addEventListener('click', (e) => {
-            e.stopPropagation(); // منع انتشار الحدث
-            // تبديل الكلاس على الزر لتغيير الأيقونة (فتح/إغلاق)
-            mobileNavToggle.classList.toggle('active');
-            // تبديل الكلاس على body لإظهار/إخفاء القائمة ومنع التمرير في الخلفية
-            body.classList.toggle('mobile-nav-active');
+    if (mobileNavToggle && sidebar && mainContent) {
+        mobileNavToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            mainContent.classList.toggle('shifted');
         });
     }
 });

@@ -4,46 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="login_title">BroTech - تسجيل الدخول</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/auth.css"> <!-- Styles for auth pages -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="../../images/brotech-logo.png" type="image/png">
 </head>
 <body class="login-page">
     <header>
-        <div class="container">
-            <div class="logo">
-                <div class="logo-container">
-                    <img src="../../images/brotech-logo.png" alt="BroTech Logo" class="logo-img">
-                    <h1 class="logo-text" data-translate="logo">BroTech</h1>
-                </div>
-            </div>
-            <div class="header-nav-wrapper">
-                <nav>
-                    <ul>
-                        <li><a href="../../index.html" data-translate="home">الرئيسية</a></li>
-                        <li><a href="register.html" data-translate="register">إنشاء حساب</a></li>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand logo" href="../../index.html">
+                    <div class="logo-container">
+                        <img src="../../images/brotech-logo.png" alt="BroTech Logo" class="logo-img">
+                        <h1 class="logo-text" data-translate="logo">BroTech</h1>
+                    </div>
+                </a>
+                <button class="navbar-toggler mobile-nav-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse mobile-dropdown-menu" id="main-nav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link" href="../../index.html" data-translate="home">الرئيسية</a></li>
+                        <li class="nav-item"><a class="nav-link" href="register.html" data-translate="register">إنشاء حساب</a></li>
                     </ul>
-                </nav>
-                <div class="language-switcher">
-                    <button onclick="changeLanguage('ar')">العربية</button>
-                    <button onclick="changeLanguage('en')">English</button>
-                </div>
-                <div class="theme-switch-wrapper">
-                    <label class="theme-switch" for="theme-toggle">
-                        <input type="checkbox" id="theme-toggle" />
-                        <span class="slider">
-                            <i class="fas fa-moon"></i>
-                            <i class="fas fa-sun"></i>
-                        </span>
-                    </label>
+                    <div class="header-actions d-flex align-items-center">
+                        <div class="dropdown language-switcher-dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false" aria-label="اللغة">
+                                <i class="fas fa-globe"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                                <li><button class="dropdown-item" onclick="changeLanguage('ar')">العربية</button></li>
+                                <li><button class="dropdown-item" onclick="changeLanguage('en')">English</button></li>
+                            </ul>
+                        </div>
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="theme-toggle">
+                                <input type="checkbox" id="theme-toggle" />
+                                <span class="slider">
+                                    <i class="fas fa-moon"></i>
+                                    <i class="fas fa-sun"></i>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <button class="mobile-nav-toggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars open-icon"></i>
-                <i class="fas fa-times close-icon"></i>
-            </button>
-        </div>
+        </nav>
     </header>
 
     <!-- ...existing code... -->
@@ -55,33 +64,34 @@
                 <h2 data-translate="login_heading">تسجيل الدخول إلى حسابك</h2>
                 <p class="form-subtitle" data-translate="login_subtitle">مرحباً بعودتك! يرجى إدخال بياناتك.</p>
             </div>
+            <div id="auth-message" class="alert d-none" role="alert"></div>
             <form id="loginForm">   
-                <div class="form-group">
-                    <label for="login-email" data-translate="email">البريد الإلكتروني</label>
-                    <input type="email" id="login-email" required>
+                <div class="form-group mb-3">
+                    <label for="login-email" class="form-label" data-translate="email">البريد الإلكتروني</label>
+                    <input type="email" id="login-email" class="form-control" required>
                 </div>
-                <div class="form-group">
-                    <label for="login-password" data-translate="password">كلمة المرور</label>
-                    <input type="password" id="login-password" required>
+                <div class="form-group mb-3">
+                    <label for="login-password" class="form-label" data-translate="password">كلمة المرور</label>
+                    <input type="password" id="login-password" class="form-control" required>
                 </div>
-                <div class="form-options">
+                <div class="form-options d-flex justify-content-between align-items-center mb-3">
                     <label>
                         <input type="checkbox" id="remember-me">
                         <span data-translate="remember_me">تذكرني</span>
                     </label>
-                    <a href="#" class="forgot-password" data-translate="forgot_password">نسيت كلمة المرور؟</a>
+                    <a href="#" id="forgot-password-link" class="forgot-password" data-translate="forgot_password">نسيت كلمة المرور؟</a>
                 </div>
-                <button type="submit" class="btn-primary" data-translate="login_button">
+                <button type="submit" class="btn btn-primary w-100" data-translate="login_button">
                     <i class="fas fa-sign-in-alt"></i> تسجيل الدخول
                 </button>
             </form>
             <div class="social-login">
                 <p class="divider" data-translate="or_login_with">أو سجل الدخول عن طريق</p>
                 <div class="social-buttons">
-                    <button class="social-btn google" data-translate="google">
+                    <button id="google-signin-btn" class="social-btn google" data-translate="google">
                         <i class="fab fa-google"></i> جوجل
                     </button>
-                    <button class="social-btn facebook" data-translate="facebook">
+                    <button id="facebook-signin-btn" class="social-btn facebook" data-translate="facebook">
                         <i class="fab fa-facebook-f"></i> فيسبوك
                     </button>
                 </div>
@@ -95,11 +105,35 @@
         </div> -->
     </div>
 </main>
+
+<!-- Reset Password Modal -->
+<div class="modal fade" id="resetPasswordModal" tabindex="-1" aria-labelledby="resetPasswordModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="resetPasswordModalLabel" data-translate="reset_password_title">إعادة تعيين كلمة المرور</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="resetPasswordForm">
+          <div id="reset-message" class="alert" role="alert" style="display: none;"></div>
+          <p data-translate="reset_password_instruction">الرجاء إدخال بريدك الإلكتروني لإرسال رابط إعادة التعيين.</p>
+          <div class="mb-3">
+            <label for="reset-email" class="form-label" data-translate="email">البريد الإلكتروني</label>
+            <input type="email" class="form-control" id="reset-email" required placeholder="example@brotech.com">
+          </div>
+          <button type="submit" id="reset-submit-button" class="btn btn-primary w-100" data-translate="send_reset_link">إرسال رابط إعادة التعيين</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
 <!-- ...existing code... -->
 
     <script src="../../js/theme.js"></script>
     <script src="../../js/language.js"></script>
-    <script type="module" src="../../js/app.js"></script>
-    <script src="../../js/mobile-nav.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="module" src="../../js/auth.js"></script>
 </body>
 </html>

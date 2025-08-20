@@ -5,62 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate="title">BroTech - الصفحة الرئيسية</title>
     <!-- الروابط الأساسية -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="alternate" hreflang="ar" href="https://yourdomain.com/ar" />
-    <link rel="alternate" hreflang="en" href="https://yourdomain.com/en" />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="alternate" hreflang="ar" href="index.html?lang=ar" />
+    <link rel="alternate" hreflang="en" href="index.html?lang=en" />
     <link rel="icon" href="./images/brotech-logo.png" type="image/png">
 </head>
-<body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <div class="logo-container">
-                    <img src="./images/brotech-logo.png" alt="BroTech Logo" class="logo-img">
-                    <h1 class="logo-text" data-translate="logo">BroTech</h1>
-                </div>
-            </div>
-            <div class="header-nav-wrapper">
-                <nav>
-                    <ul>
-                        <li><a href="index.html" class="active" data-translate="home">الرئيسية</a></li>
-                        <li><a href="#services" data-translate="services">خدماتنا</a></li>
-                        <li><a href="#about" data-translate="about">من نحن</a></li>
-                        <li><a href="#contact" data-translate="contact">اتصل بنا</a></li>
-                        <li><a href="pages/auth/login.html" class="btn btn-login" data-translate="login">تسجيل الدخول</a></li>
+<body class="has-fixed-header">
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand logo" href="index.html">
+                    <div class="logo-container">
+                        <img src="./images/brotech-logo.png" alt="BroTech Logo" class="logo-img">
+                        <h1 class="logo-text" data-translate="logo">BroTech</h1>
+                    </div>
+                </a>
+                <button class="navbar-toggler mobile-nav-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse mobile-dropdown-menu" id="main-nav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" href="index.html" data-translate="home">الرئيسية</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#services" data-translate="services">خدماتنا</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#about" data-translate="about">من نحن</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact" data-translate="contact">اتصل بنا</a></li>
                     </ul>
-                </nav>
-                <div class="language-switcher">
-                    <button onclick="changeLanguage('ar')">العربية</button>
-                    <button onclick="changeLanguage('en')">English</button>
-                </div>
-                <div class="theme-switch-wrapper">
-                    <label class="theme-switch" for="theme-toggle">
-                        <input type="checkbox" id="theme-toggle" />
-                        <span class="slider">
-                            <i class="fas fa-moon"></i>
-                            <i class="fas fa-sun"></i>
-                        </span>
-                    </label>
+                    <div class="header-actions d-flex align-items-center">
+                        <a href="pages/auth/login.html" class="btn btn-login" data-translate="login">تسجيل الدخول</a>
+                        <div class="dropdown language-switcher-dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false" aria-label="اللغة">
+                                <i class="fas fa-globe"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                                <li><button class="dropdown-item" onclick="changeLanguage('ar')">العربية</button></li>
+                                <li><button class="dropdown-item" onclick="changeLanguage('en')">English</button></li>
+                            </ul>
+                        </div>
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="theme-toggle">
+                                <input type="checkbox" id="theme-toggle" />
+                                <span class="slider">
+                                    <i class="fas fa-moon"></i>
+                                    <i class="fas fa-sun"></i>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <button class="mobile-nav-toggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars open-icon"></i>
-                <i class="fas fa-times close-icon"></i>
-            </button>
-        </div>
+        </nav>
     </header>
 
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h2 data-translate="hero_title">حلول تكنولوجية متكاملة لعملك</h2>
-                <p data-translate="hero_text">نقدم في BroTech أحدث الحلول التقنية لدعم نمو أعمالك وتحقيق أهدافك</p>
-                <a href="pages/auth/register.html" class="btn-primary" data-translate="join_us">انضم إلينا الآن</a>
-            </div>
-            <div class="hero-image">
-                <img src="images/tech-hero.png" alt="BroTech Solutions">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h2 data-translate="hero_title">حلول تكنولوجية متكاملة لعملك</h2>
+                    <p data-translate="hero_text">نقدم في BroTech أحدث الحلول التقنية لدعم نمو أعمالك وتحقيق أهدافك</p>
+                    <a href="pages/auth/register.html" class="btn btn-primary" data-translate="join_us">انضم إلينا الآن</a>
+                </div>
+                <div class="col-lg-6 hero-image text-center">
+                    <img src="images/tech-hero.png" alt="BroTech Solutions" class="img-fluid">
+                </div>
             </div>
         </div>
     </section>
@@ -68,23 +78,53 @@
     <section id="services" class="services">
         <div class="container">
             <h2 class="section-title" data-translate="our_services">خدماتنا</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <i class="fas fa-laptop-code"></i>
-                    <h3 data-translate="web_dev">تطوير المواقع</h3>
-                    <p data-translate="web_dev_desc">تصميم وتطوير مواقع ويب احترافية متكاملة</p>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card service-card h-100">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3 data-translate="web_dev">تطوير المواقع</h3>
+                        <p data-translate="web_dev_desc">تصميم وتطوير مواقع ويب احترافية متكاملة</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h3 data-translate="mobile_apps">تطبيقات الجوال</h3>
-                    <p data-translate="mobile_apps_desc">بناء تطبيقات الهاتف لنظامي Android و iOS</p>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card service-card h-100">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3 data-translate="mobile_apps">تطبيقات الجوال</h3>
+                        <p data-translate="mobile_apps_desc">بناء تطبيقات الهاتف لنظامي Android و iOS</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <i class="fas fa-cloud"></i>
-                    <h3 data-translate="cloud_solutions">الحلول السحابية</h3>
-                    <p data-translate="cloud_solutions_desc">توفير حلول سحابية آمنة وقابلة للتوسع</p>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card service-card h-100">
+                        <i class="fas fa-cloud"></i>
+                        <h3 data-translate="cloud_solutions">الحلول السحابية</h3>
+                        <p data-translate="cloud_solutions_desc">توفير حلول سحابية آمنة وقابلة للتوسع</p>
+                    </div>
                 </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card service-card h-100">
+                         <i class="fas fa-server"></i>
+                        <h3 data-translate="virtual_environments">البيئات الافتراضية</h3>
+                        <p data-translate="virtual_environments_desc">
+                                إنشاء وإدارة بيئات افتراضية مرنة لتطوير واختبار الأنظمة
+                     </p>
+                </div>
+                
             </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+  <div class="card service-card h-100">
+    <i class="fas fa-headset"></i>
+    <h3 data-translate="it_support">الدعم الفني</h3>
+    <p data-translate="it_support_desc">تقديم دعم تقني متكامل لحل المشاكل وضمان استمرارية العمل</p>
+  </div>
+</div>
+<!-- خدمة السيرفرات -->
+<div class="col-lg-4 col-md-6 mb-4">
+  <div class="card service-card h-100">
+    <i class="fas fa-server"></i>
+    <h3 data-translate="server_solutions">خدمات السيرفرات</h3>
+    <p data-translate="server_solutions_desc">إدارة وتركيب السيرفرات بأعلى معايير الأداء والأمان</p>
+  </div>
+</div>
         </div>
     </section>
 
@@ -97,15 +137,15 @@
                 </p>
                 <!-- صور تقنية -->
                 <div class="about-images">
-                    <img src="images/amr1.png" alt="تقنية 1" class="enlargeable-image" data-src="images/amr1.png">
-                    <img src="images/amr.jpg" alt="تقنية 2" class="enlargeable-image" data-src="images/tech2.jpg">
-                    <img src="images/amr2.webp" alt="تقنية 3" class="enlargeable-image" data-src="images/tech3.jpg">
+                    <img src="images/amr1.png" alt="عضو فريق BroTech يعمل على حاسوبه المحمول" class="enlargeable-image" data-src="images/amr1.png">
+                    <img src="images/amr.jpg" alt="لقطة شاشة لكود برمجي معقد" class="enlargeable-image" data-src="images/tech2.jpg">
+                    <img src="images/amr2.webp" alt="رسم بياني يوضح بنية الحلول السحابية" class="enlargeable-image" data-src="images/tech3.jpg">
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact">
+    <section id="contact" class="contact section">
         <div class="container">
             <h2 class="section-title" data-translate="contact_us">اتصل بنا</h2>
             <div class="contact-content section-content-wrapper">
@@ -114,18 +154,18 @@
                 </p>
                 <form class="contact-form" id="contactForm">
                     <div class="form-group">
-                        <label for="name" data-translate="your_name">الاسم</label>
-                        <input type="text" id="name" required>
+                        <label for="name" class="form-label" data-translate="your_name">الاسم</label>
+                        <input type="text" id="name" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="email" data-translate="your_email">البريد الإلكتروني</label>
-                        <input type="email" id="email" required>
+                        <label for="email" class="form-label" data-translate="your_email">البريد الإلكتروني</label>
+                        <input type="email" id="email" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="message" data-translate="your_message">رسالتك</label>
-                        <textarea id="message" rows="5" required></textarea>
+                        <label for="message" class="form-label" data-translate="your_message">رسالتك</label>
+                        <textarea id="message" rows="5" class="form-control" required></textarea>
                     </div>
-                    <button type="submit" class="btn-primary" data-translate="send_message">إرسال الرسالة</button>
+                    <button type="submit" class="btn btn-primary" data-translate="send_message">إرسال الرسالة</button>
                 </form>
                 <div class="contact-info">
                     <p><strong>البريد الإلكتروني:</strong> <a href="mailto:amrfahmi@zohomail.com">amrfahmi@zohomail.com</a></p>
@@ -137,14 +177,14 @@
 
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 footer-section">
                     <h3 data-translate="company">BroTech</h3>
                     <p data-translate="company_desc">شركة رائدة في تقديم الحلول التقنية المتكاملة</p>
                 </div>
-                <div class="footer-section">
+                <div class="col-lg-4 col-md-6 mb-4 footer-section">
                     <h3 data-translate="quick_links">روابط سريعة</h3>
-                    <ul>
+                    <ul class="list-unstyled">
                         <li>
                             <a href="index.html" data-translate="home">
                                 <i class="fas fa-home"></i> الرئيسية
@@ -172,14 +212,10 @@
                         </li>
                     </ul>
                 </div>
-                <div class="footer-section">
+                <div class="col-lg-4 col-md-12 mb-4 footer-section">
                     <h3 data-translate="contact_us">اتصل بنا</h3>
-                    <p>
-                        <i class="fas fa-envelope"></i> <a href="mailto:amrfahmi@zohomail.com">amrfahmi@zohomail.com</a>
-                    </p>
-                    <p>
-                        <i class="fas fa-phone"></i> <a href="tel:+967773153278">+967 773 153 278</a>
-                    </p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:amrfahmi@zohomail.com">amrfahmi@zohomail.com</a></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+967773153278">+967 773 153 278</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -199,8 +235,8 @@
 
     <script src="./js/language.js"></script>
     <script src="./js/theme.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="module" src="./js/app.js"></script>
-    <script src="./js/mobile-nav.js"></script>
     
 </body>
 </html>
