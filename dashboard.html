@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -11,68 +11,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="./images/brotech-logo.png" type="image/png">
- 
+    <style>
+        @media (min-width: 992px) {
+            .dashboard-content {
+                margin-inline-start: 0;
+            }
+        }
+    </style>
 </head>
 <body class="dashboard">
 
     <!-- Header الموحد -->
     <header class="fixed-top">
-        <div class="container">
-            <div class="logo">
-                <div class="logo-container clickable" onclick="window.location.href='index.html'">
-                    <img src="./images/brotech-logo.png" alt="BroTech Logo" class="logo-img">
-                    <h1 class="logo-text" data-translate="logo">BroTech</h1>
+        <div class="container dashboard-header-container">
+            <div class="header-left">
+                <div class="logo">
+                    <div class="logo-container clickable" onclick="window.location.href='index.html'">
+                        <img src="./images/brotech-logo.png" alt="BroTech Logo" class="logo-img">
+                        <h1 class="logo-text" data-translate="logo">BroTech</h1>
+                    </div>
                 </div>
             </div>
-            <button class="header-btn sidebar-toggle-btn d-lg-none" aria-label="Toggle sidebar">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <div class="header-actions">
-                <button class="header-btn search-btn" aria-label="بحث"><i class="fas fa-search"></i></button>
-                
-                <div class="dropdown notifications-wrapper">
-                    <button class="header-btn notifications-btn" type="button" id="notificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false" aria-label="الإشعارات">
-                        <i class="fas fa-bell"></i>
-                        <span class="badge rounded-pill bg-danger">3</span>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
-                        <li><h6 class="dropdown-header" data-translate="notifications">الإشعارات</h6></li>
-                        <li><a class="dropdown-item" href="notifications.html"><span data-translate="notification1_text">لديك مهمة جديدة مستحقة</span> <small class="text-muted">15 دقيقة</small></a></li>
-                        <li><a class="dropdown-item" href="notifications.html"><span data-translate="notification2_text">تم تحديث المشروع X</span> <small class="text-muted">1 ساعة</small></a></li>
-                        <li><a class="dropdown-item" href="notifications.html"><span data-translate="notification3_text">رسالة جديدة من عميل</span> <small class="text-muted">3 ساعات</small></a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item text-center" href="notifications.html" data-translate="view_all_notifications">عرض كل الإشعارات</a></li>
-                    </ul>
-                </div>
-                
-                <div class="theme-switch-wrapper">
-                    <label class="theme-switch" for="theme-toggle">
-                        <input type="checkbox" id="theme-toggle" />
-                        <span class="slider">
-                            <i class="fas fa-moon"></i>
-                            <i class="fas fa-sun"></i>
-                        </span>
-                    </label>
-                </div>
-
-                <div class="dropdown language-switcher-dropdown">
-                    <button class="header-btn dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false" aria-label="اللغة">
-                        <i class="fas fa-globe"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
-                        <li><button class="dropdown-item" onclick="changeLanguage('ar')">العربية</button></li>
-                        <li><button class="dropdown-item" onclick="changeLanguage('en')">English</button></li>
-                    </ul>
-                </div>
-
+            <div class="header-center">
                 <div class="dropdown user-profile-dropdown">
                     <button class="user-profile-btn dropdown-toggle" type="button" id="userProfileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="user-avatar">
                             <img src="./images/Eng.amr.jpg" alt="صورة المستخدم" id="header-avatar">
                         </div>
-                        <span class="user-name" id="user-profile-name">Amr Fahmi</span>
                     </button>
+                    <span class="user-name" id="user-profile-name">Amr Fahmi</span>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userProfileDropdown">
                         <li><a class="dropdown-item" href="profile.html" data-translate="profile"><i class="fas fa-user fa-fw me-2"></i> الملف الشخصي</a></li>
                         <li><a class="dropdown-item" href="settings.html" data-translate="settings"><i class="fas fa-cog fa-fw me-2"></i> الإعدادات</a></li>
@@ -83,11 +50,52 @@
                     </ul>
                 </div>
             </div>
+            <div class="header-right">
+                <div class="header-actions">
+                    <button class="header-btn search-btn" aria-label="بحث"><i class="fas fa-search"></i></button>
+                    
+                    <div class="dropdown notifications-wrapper">
+                        <button class="header-btn notifications-btn" type="button" id="notificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false" aria-label="الإشعارات">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge rounded-pill bg-danger">3</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationsDropdown">
+                            <li><h6 class="dropdown-header" data-translate="notifications">الإشعارات</h6></li>
+                            <li><a class="dropdown-item" href="notifications.html"><span data-translate="notification1_text">لديك مهمة جديدة مستحقة</span> <small class="text-muted">15 دقيقة</small></a></li>
+                            <li><a class="dropdown-item" href="notifications.html"><span data-translate="notification2_text">تم تحديث المشروع X</span> <small class="text-muted">1 ساعة</small></a></li>
+                            <li><a class="dropdown-item" href="notifications.html"><span data-translate="notification3_text">رسالة جديدة من عميل</span> <small class="text-muted">3 ساعات</small></a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-center" href="notifications.html" data-translate="view_all_notifications">عرض كل الإشعارات</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="theme-switch-wrapper">
+                        <label class="theme-switch" for="theme-toggle">
+                            <input type="checkbox" id="theme-toggle" />
+                            <span class="slider">
+                                <i class="fas fa-moon"></i>
+                                <i class="fas fa-sun"></i>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="dropdown language-switcher-dropdown">
+                        <button class="header-btn dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false" aria-label="اللغة">
+                            <i class="fas fa-globe"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                            <li><button class="dropdown-item" onclick="changeLanguage('ar')">العربية</button></li>
+                            <li><button class="dropdown-item" onclick="changeLanguage('en')">English</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
     <div class="dashboard-layout">
        
+
         <main class="dashboard-content">
             <div class="stats-grid">
                 <div class="stat-card">
@@ -132,25 +140,8 @@
 
                 <!-- الدردشة مع العملاء -->
                 <section class="card chat-card">
-                    <h2 data-translate="quick_chat"><i class="fas fa-comments"></i> الدردشة السريعة</h2>
-                    <div class="chat-box">
-                        <div class="message client">
-                            <img src="./images/avatar-client.png" alt="Client" class="chat-avatar">
-                            <p>مرحباً، أريد العمل على مشروع جديد.</p>
-                        </div>
-                        <div class="message admin">
-                            <img src="./images/avatar.png" alt="Admin" class="chat-avatar">
-                            <p>أهلاً بك، تفضل بإرسال تفاصيل المشروع.</p>
-                        </div>
-                         <div class="message client">
-                            <img src="./images/avatar-client.png" alt="Client" class="chat-avatar">
-                            <p>بالتأكيد، سأرسلها الآن.</p>
-                        </div>
-                    </div>
-                    <div class="chat-input">
-                        <input type="text" placeholder="اكتب رسالتك..." data-translate-placeholder="type_message" aria-label="اكتب رسالتك">
-                        <button aria-label="إرسال الرسالة"><i class="fas fa-paper-plane"></i></button>
-                    </div>
+                    <h2 data-translate="customer_chat"><i class="fas fa-comments"></i> الدردشة مع العملاء</h2>
+                    <p data-translate="chat_widget_info">نافذة الدردشة مع فريق الدعم متاحة في أسفل الصفحة للتواصل المباشر.</p>
                 </section>
 
                 <!-- قائمة المستخدمين -->
@@ -164,34 +155,6 @@
         </main>
     </div>
 
-    <!-- Footer الموحد -->
-    <footer class="dashboard-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3 data-translate="logo">BroTech</h3>
-                    <p data-translate="dashboard_footer_desc">لوحة تحكم الحلول التقنية المتكاملة.</p>
-                </div>
-                <div class="footer-section">
-                    <h3 data-translate="important_links">روابط هامة</h3>
-                    <ul>
-                        <li><a href="dashboard.html" data-translate="dashboard"><i class="fas fa-tachometer-alt"></i> لوحة التحكم</a></li>
-                        <li><a href="profile.html" data-translate="profile"><i class="fas fa-user"></i> الملف الشخصي</a></li>
-                        <li><a href="settings.html" data-translate="settings"><i class="fas fa-cog"></i> الإعدادات</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3 data-translate="tech_support">الدعم الفني</h3>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:support@brotech.com">support@brotech.com</a></p>
-                    <p><i class="fas fa-phone"></i> <a href="tel:+967773153278">+967 773 153 278</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p data-translate="copyright">&copy; 2025 BroTech. جميع الحقوق محفوظة</p>
-            </div>
-        </div>
-    </footer>
-
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script type="module" src="./js/dashboard.js"></script>
@@ -199,5 +162,18 @@
     <script src="./js/theme.js"></script>
     <script src="./js/main.js"></script>
 
+<!-- Tawk.to Script -->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+    var s1=document.createElement("script");
+    s1.async=true;
+    s1.src='https://embed.tawk.to/68a795d1c874f8192637c011/1j37a2eqn';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    document.body.appendChild(s1);
+})();
+</script>
 </body>
-</html>
+</html> 
+اريد هذه الصفحة وهي صفحة dashboard ان تتلائم مع الجوال 

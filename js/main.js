@@ -27,6 +27,12 @@ const protectPage = () => {
  * This function is intended for pages that include the main sidebar.
  */
 document.addEventListener('DOMContentLoaded', function() {
+    // Add a class to the body on authentication pages to allow for custom styling (e.g., hiding the header).
+    const isAuthPage = window.location.pathname.includes('/pages/auth/');
+    if (isAuthPage) {
+        document.body.classList.add('auth-page-body');
+    }
+
     // Run the page protection logic on every page that includes this script.
     protectPage();
 
@@ -54,5 +60,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     if (bestMatch) {
         bestMatch.closest('.menu-item').classList.add('active');
+    }
+
+    // --- Sidebar Toggle Logic ---
+    const sidebarToggleBtn = document.getElementById('sidebar-toggle-btn');
+    const body = document.body;
+
+    if (sidebarToggleBtn) {
+        // Function to toggle sidebar based on screen size
+        const toggleSidebar = () => {
+            if (window.innerWidth < 992) {
+                // Mobile view: toggle class on sidebar itself for off-canvas
+                document.querySelector('.sidebar')?.classList.toggle('mobile-open');
+            } else {
+                // Desktop view: toggle class on body for collapsed state
+                body.classList.toggle('sidebar-collapsed');
+            }
+        };
+
+        sidebarToggleBtn.addEventListener('click', toggleSidebar);
     }
 });

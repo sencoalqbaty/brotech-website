@@ -100,6 +100,8 @@ header .container {
     display: flex;
     align-items: center;
     gap: 15px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 .header-btn {
@@ -141,6 +143,9 @@ header .container {
 
 .user-profile-dropdown {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .user-profile-btn {
@@ -166,9 +171,20 @@ header .container {
     object-fit: cover;
 }
 
-.user-profile-btn .user-name {
-    font-weight: 500;
-    color: var(--dark-color);
+.user-profile-dropdown > .user-name {
+    font-size: 0.8rem;
+    margin-top: 4px;
+    color: var(--secondary-color);
+}
+
+body.dark-theme .user-profile-dropdown > .user-name {
+    color: #b0b3b8;
+}
+
+.dashboard-header-container .user-profile-btn {
+    gap: 4px;
+    padding: 2px;
+    border-radius: 50px; /* Pill shape */
 }
 
 header .container {
@@ -176,6 +192,36 @@ header .container {
   justify-content: space-between;
   align-items: center;
   padding: 15px 0;
+}
+
+/* New Dashboard Header Layout */
+.dashboard-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.header-left, .header-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.header-left {
+    justify-content: flex-start;
+    gap: 15px;
+}
+.sidebar-toggle-wrapper {
+    display: none; /* Hidden by default, shown in media query */
+}
+
+.header-center {
+    flex-shrink: 0;
+}
+
+.header-right {
+    justify-content: flex-end;
 }
 
 nav ul {
@@ -434,12 +480,23 @@ footer {
 
 /* ============== صفحات المصادقة ============== */
 /* نمط موحد لصفحات تسجيل الدخول وإنشاء الحساب */
+
+/* Hide header on auth pages and adjust layout */
+.auth-page-body header.fixed-top {
+    display: none;
+}
+.auth-page-body {
+    padding-top: 0 !important;
+}
 .auth-page {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: calc(100vh - var(--header-height));
   padding: 40px 15px; /* إضافة مساحة داخلية عمودية وأفقية */
+}
+.auth-page-body .auth-page {
+    min-height: 100vh;
 }
 .auth-container {
   background-color: var(--white-color);
@@ -537,6 +594,30 @@ footer {
     border-radius: var(--border-radius); /* توحيد حواف الزر مع الأزرار الأخرى */
 }
 
+/* --- أيقونة إظهار/إخفاء كلمة المرور --- */
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    inset-inline-end: 15px; /* For RTL support, this is left */
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--secondary-color);
+    z-index: 3;
+}
+
+[dir="ltr"] .toggle-password {
+    inset-inline-end: auto;
+    inset-inline-start: 15px;
+}
+
+.password-input .form-control {
+    padding-inline-end: 40px;
+}
+
+[dir="ltr"] .password-input .form-control {
+    padding-inline-end: .75rem;
+    padding-inline-start: 40px;
+}
 /* ============== لوحة التحكم (تصميم جديد ومنظم) ============== */
 .dashboard {
   background-color: #f5f7fa;
@@ -788,15 +869,151 @@ footer {
     padding-bottom: 15px;
 }
 
+/* --- بطاقة قائمة المستخدمين --- */
+.users-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.user-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    transition: var(--transition);
+}
+
+.user-item:last-child {
+    border-bottom: none;
+}
+
+.user-item:hover {
+    background-color: var(--primary-light);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    margin: 0 -15px;
+}
+
+.user-item .user-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-inline-end: 15px;
+    flex-shrink: 0;
+}
+
+.user-item .user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-item .user-info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.user-item .user-name {
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.user-item .user-role {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+}
+
+body.dark-theme .user-item {
+    border-bottom-color: #3a3b3c;
+}
+
+body.dark-theme .user-item:hover {
+    background-color: rgba(74, 107, 255, 0.15);
+}
+
+body.dark-theme .user-item .user-name {
+    color: #e4e6eb;
+}
+
+body.dark-theme .user-item .user-role {
+    color: #b0b3b8;
+}
+
 /* --- بطاقة المشاريع الحديثة --- */
 .projects-list {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.projects-list li {
+.project-item {
+    background-color: var(--white-color);
+    border: 1px solid #eee;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    transition: var(--transition);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.project-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.project-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.project-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--dark-color);
+}
+
+.project-status {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    color: var(--white-color);
+    background-color: var(--secondary-color);
+}
+
+.project-status.in-progress { background-color: var(--info-color); }
+.project-status.completed { background-color: var(--success-color); }
+.project-status.on-hold { background-color: var(--warning-color); }
+
+.project-description {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.project-meta {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    display: flex;
+    gap: 15px;
+}
+
+body.dark-theme .project-item {
+    background-color: #2d2d3d;
+    border-color: #3a3b3c;
+}
+body.dark-theme .project-title {
+    color: #e4e6eb;
+}
+body.dark-theme .project-description, body.dark-theme .project-meta {
+    color: #b0b3b8;
+}
 /* ============== التجاوب ============== */
 @media (max-width: 992px) {
   .hero .container {
@@ -827,6 +1044,30 @@ footer {
   body.has-fixed-header {
       padding-top: 0; /* Remove padding since header is no longer fixed */
   }
+
+  /* Make dashboard header responsive */
+  body.dashboard header.fixed-top {
+      position: static;
+  }
+  body.dashboard {
+      padding-top: 0;
+  }
+  body.dashboard header .container,
+  body.dashboard .dashboard-header-container {
+      height: auto;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+  }
+
+  .sidebar-toggle-wrapper {
+      display: block;
+  }
+
+  .header-left, .header-right {
+      flex: initial; /* Don't grow to fill space on mobile */
+      justify-content: center;
+  }
 }
 
 @media (max-width: 768px) {
@@ -846,7 +1087,8 @@ footer {
   .dashboard-content {
     padding: 20px;
   }
-  
+
+  .dashboard-header {
     position: relative;
     left: auto;
     top: auto;
@@ -861,6 +1103,14 @@ footer {
   .logo-text {
     font-size: 1.2rem;
   }
+}
+
+@media (max-width: 480px) {
+    .stat-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
 }
 
 /* ============== قائمة التنقل المنسدلة للجوال ============== */
@@ -1350,4 +1600,79 @@ body.dark-theme .profile-details-card .form-control[readonly] {
 
 body.dark-theme .loading-overlay {
     background-color: rgba(24, 26, 27, 0.7);
+}
+/* جعل الصور مرنة */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* الشبكات */
+.stats-grid, .dashboard-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.stats-grid {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.dashboard-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* الهيدر */
+.dashboard-header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-img {
+  max-height: 40px;
+  width: auto;
+}
+
+/* الهواتف (شاشات أصغر من 768px) */
+@media (max-width: 768px) {
+  /* الهيدر */
+  .user-name {
+    display: none; /* إخفاء الاسم والاكتفاء بالصورة */
+  }
+  .dashboard-header-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header-center, .header-right {
+    margin-top: 10px;
+  }
+
+  /* الشبكات */
+  .dashboard-grid {
+    grid-template-columns: 1fr; /* عمود واحد */
+  }
+}
+
+/* الخطوط للأجهزة الصغيرة جداً */
+@media (max-width: 576px) {
+  body {
+    font-size: 14px;
+  }
+  h1, h2, h3 {
+    font-size: 1.2rem;
+  }
+}
+/* ============== تحسينات عامة ============== */
+body {
+  font-family: 'Cairo', sans-serif;
+  line-height: 1.6;
+  color: var(--dark-color);
+  background-color: var(--light-color);
 }
